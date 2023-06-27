@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>CS338_Demo</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo">
+          <a href="#home">CS338<span> Demo</span></a>
+        </div>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--Home section-->
+    <section class="home" id="home">
+      <div class="max-width">
+        <div class="home-content">
+          <div class="text-1">Welcome to</div>
+          <div class="text-2">Our Project</div>
+          <a href="#demo" class="button">Let's check</a>
+        </div>
+      </div>
+    </section>
+    <section class="demo" id="demo">
+      <div class="max-width">
+        <div class="demo-content">
+          <h1>AI image classification</h1>
+          <div class="container">
+            <div class="image-upload">
+              <div class="image-preview" id="image-preview"></div>
+              <input
+                type="file"
+                id="file-upload"
+                accept="image/*"
+                style="display: none"
+              />
+              <button onclick="selectFile()" class="upload-button">
+                Upload
+              </button>
+            </div>
+            <div>
+              <button onclick="checkImage()" class="check-button">Check</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

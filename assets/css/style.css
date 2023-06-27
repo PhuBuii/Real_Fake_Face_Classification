@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.max-width {
+  max-width: 1500px;
+  padding: 0 80px;
+  margin: auto;
+}
+/*-----Navbar styling----*/
+.navbar {
+  position: fixed;
+  width: 100%;
+  margin: 20px;
+  font-family: "Poppins", sans-serif;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+}
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 0 0 0 50px;
+}
+.navbar .logo a {
+  color: #fff;
+  font-size: 45px;
+  font-weight: 600;
+}
+.navbar .menu li {
+  list-style: none;
+  display: inline;
+  margin-left: 80px;
+}
+.navbar .menu li a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+}
+.navbar .menu li a:hover {
+  color: #0093fcc1;
+}
+
+/* home section styling  */
+
+.home {
+  display: flex;
+  background: url("../images/background.jpeg") no-repeat center;
+  height: 100vh;
+  color: #fff;
+  min-height: 500px;
+  font-family: "Ubuntu", sans-serif;
+}
+.home .max-width {
+  width: 50%;
+  margin-left: 200px;
+  margin-top: 400px;
+}
+.home .home-content .text-1 {
+  font-size: 37px;
+}
+.home .home-content .text-2 {
+  font-size: 47px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+.home .home-content .button {
+  display: inline-block;
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.home .home-content .button:hover {
+  color: #334734;
+}
+
+.demo {
+  display: flex;
+  background-color: #334734;
+  height: 100vh;
+  color: #fff;
+  min-height: 500px;
+  font-family: "Ubuntu", sans-serif;
+}
+.demo .max-width {
+  width: 50%;
+}
+.demo .demo-content .text-1 {
+  font-size: 37px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.image-preview {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.upload-button {
+  margin-bottom: 10px;
+}
+
+.check-button {
+  margin-right: 10px;
+}
