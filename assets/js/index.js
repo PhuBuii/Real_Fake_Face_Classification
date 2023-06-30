@@ -53,23 +53,37 @@ async function checkImage() {
     alert("Please upload an image first.");
     return;
   }
-  const MODEL_URL = "./model.json";
+  const MODEL_URL = "./assets/js/model/model.json";
   const model = await tf.loadLayersModel(MODEL_URL);
   var formData = new FormData();
   formData.append("image", selectedImage);
   console.log(selectedImage);
-  selectedImage.onload = () => {
-    var a = tf.browser.fromPixels(selectedImage, 3);
-    a = tf.image.resizeBilinear(a, [256, 256], true, false);
-    let predictions = model.predict(a.reshape([1, 256, 256, 3]));
-    if (predictions.dataSync()[0] == 1) {
-      var header = document.querySelector("#detect .result h2");
-      header.textContent = "AI PICTURE";
-    } else {
-      var header = document.querySelector("#detect .result h2");
-      header.textContent = "NORMAL PICTURE";
-    }
-  };
+
+  var a = tf.browser.fromPixels(document.getElementsByTagName('canvas')[0], 3);
+  a = tf.image.resizeBilinear(a, [256, 256], true, false);
+  let predictions = model.predict(a.reshape([1, 256, 256, 3]));
+  console.log(predictions.dataSync()[0])
+  if (predictions.dataSync()[0] == 1) {
+    var header = document.querySelector("#detect .result h2");
+    header.textContent = "AI PICTURE";
+  } else {
+    var header = document.querySelector("#detect .result h2");
+    header.textContent = "NORMAL PICTURE";
+  }
+
+  // selectedImage.onload = () => {
+  //   var a = tf.browser.fromPixels(selectedImage, 3);
+  //   a = tf.image.resizeBilinear(a, [256, 256], true, false);
+  //   let predictions = model.predict(a.reshape([1, 256, 256, 3]));
+  //   console.log(predictions.dataSync()[0])
+  //   if (predictions.dataSync()[0] == 1) {
+  //     var header = document.querySelector("#detect .result h2");
+  //     header.textContent = "AI PICTURE";
+  //   } else {
+  //     var header = document.querySelector("#detect .result h2");
+  //     header.textContent = "NORMAL PICTURE";
+  //   }
+  // };
   // var header = document.querySelector("#detect .result h2");
   // header.textContent = "AI";
 }
