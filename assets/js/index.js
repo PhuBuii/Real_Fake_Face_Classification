@@ -48,31 +48,30 @@ function previewImage(file) {
   reader.readAsDataURL(selectedImage);
 }
 
-function checkImage() {
+async function checkImage() {
   if (!selectedImage) {
     alert("Please upload an image first.");
     return;
   }
-
+  const MODEL_URL = "./model.json";
+  const model = await tf.loadLayersModel(MODEL_URL);
   var formData = new FormData();
   formData.append("image", selectedImage);
-
-  // Send image data to the server for prediction using AJAX
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/predict", true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var result = JSON.parse(xhr.responseText);
-      var predictionResult = document.getElementById("prediction-result");
-      predictionResult.innerHTML = "Prediction: " + result.prediction;
-
-      var predictionImage = new Image();
-      predictionImage.src = result.image_url;
-      predictionPreview.innerHTML = "";
-      predictionPreview.appendChild(predictionImage);
+  console.log(selectedImage);
+  selectedImage.onload = () => {
+    var a = tf.browser.fromPixels(selectedImage, 3);
+    a = tf.image.resizeBilinear(a, [256, 256], true, false);
+    let predictions = model.predict(a.reshape([1, 256, 256, 3]));
+    if (predictions.dataSync()[0] == 1) {
+      var header = document.querySelector("#detect .result h2");
+      header.textContent = "AI PICTURE";
+    } else {
+      var header = document.querySelector("#detect .result h2");
+      header.textContent = "NORMAL PICTURE";
     }
   };
-  xhr.send(formData);
+  // var header = document.querySelector("#detect .result h2");
+  // header.textContent = "AI";
 }
 // JavaScript
 window.addEventListener("scroll", function () {
