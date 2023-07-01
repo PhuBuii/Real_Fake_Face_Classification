@@ -55,9 +55,9 @@ async function checkImage() {
   }
   const MODEL_URL = "./assets/js/model/model.json";
   const model = await tf.loadLayersModel(MODEL_URL);
-  var formData = new FormData();
-  formData.append("image", selectedImage);
-  console.log(selectedImage);
+  // var formData = new FormData();
+  // formData.append("image", selectedImage);
+  // console.log(selectedImage);
 
   var a = tf.browser.fromPixels(document.getElementsByTagName('canvas')[0], 3);
   a = tf.image.resizeBilinear(a, [256, 256], true, false);
