@@ -1,7 +1,8 @@
-var selectedImage;
 var fileUpload = document.getElementById("file-upload");
 var imagePreview = document.getElementById("image-preview");
 var predictionPreview = document.getElementById("prediction-preview");
+
+let selectedImage;
 
 function selectFile() {
   fileUpload.click();
@@ -21,6 +22,7 @@ function previewImage(file) {
     image.src = e.target.result;
 
     image.onload = function () {
+      var imagePreview = document.querySelector("#image-preview");
       var canvas = document.createElement("canvas");
       var context = canvas.getContext("2d");
 
@@ -53,16 +55,20 @@ async function checkImage() {
     alert("Please upload an image first.");
     return;
   }
-  const MODEL_URL = "./model/model-baseline/model.json";
-  const model = await tf.loadLayersModel(MODEL_URL);
-  // var formData = new FormData();
-  // formData.append("image", selectedImage);
-  // console.log(selectedImage);
 
-  var a = tf.browser.fromPixels(document.getElementsByTagName('canvas')[0], 3);
+  const MODEL_URL = "./model/model-baseline/model.json";
+
+  const response = await fetch(MODEL_URL);
+  const modelFile = await response.json();
+  const model = await tf.loadLayersModel(tf.io.fromMemory(modelFile));
+
+  var imagePreview = document.querySelector("#image-preview");
+  var canvas = imagePreview.querySelector("canvas");
+  var a = tf.browser.fromPixels(canvas, 3);
   a = tf.image.resizeBilinear(a, [256, 256], true, false);
   let predictions = model.predict(a.reshape([1, 256, 256, 3]));
-  console.log(predictions.dataSync()[0])
+  console.log(predictions.dataSync()[0]);
+
   if (predictions.dataSync()[0] == 1) {
     var header = document.querySelector("#detect .result h2");
     header.textContent = "AI PICTURE";
@@ -70,23 +76,8 @@ async function checkImage() {
     var header = document.querySelector("#detect .result h2");
     header.textContent = "NORMAL PICTURE";
   }
-
-  // selectedImage.onload = () => {
-  //   var a = tf.browser.fromPixels(selectedImage, 3);
-  //   a = tf.image.resizeBilinear(a, [256, 256], true, false);
-  //   let predictions = model.predict(a.reshape([1, 256, 256, 3]));
-  //   console.log(predictions.dataSync()[0])
-  //   if (predictions.dataSync()[0] == 1) {
-  //     var header = document.querySelector("#detect .result h2");
-  //     header.textContent = "AI PICTURE";
-  //   } else {
-  //     var header = document.querySelector("#detect .result h2");
-  //     header.textContent = "NORMAL PICTURE";
-  //   }
-  // };
-  // var header = document.querySelector("#detect .result h2");
-  // header.textContent = "AI";
 }
+
 // JavaScript
 window.addEventListener("scroll", function () {
   var navbar = document.getElementById("navbar");
