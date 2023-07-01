@@ -53,7 +53,7 @@ async function checkImage() {
     alert("Please upload an image first.");
     return;
   }
-  const MODEL_URL = "./assets/js/model/model.json";
+  const MODEL_URL = "./assets/js/model/model-baseline/model.json";
   const model = await tf.loadLayersModel(MODEL_URL);
   // var formData = new FormData();
   // formData.append("image", selectedImage);
