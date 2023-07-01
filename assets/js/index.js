@@ -56,6 +56,8 @@ async function checkImage() {
     return;
   }
 
+  var header = document.querySelector("#detect .result h2");
+  header.textContent = "Loading...";
   const MODEL_URL = "./model/model-baseline/model.json";
 
   const response = await fetch(MODEL_URL);
