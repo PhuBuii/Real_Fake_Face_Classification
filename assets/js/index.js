@@ -58,7 +58,20 @@ async function checkImage() {
 
   var header = document.querySelector("#detect .result h2");
   header.textContent = "Loading...";
-  const MODEL_URL = "./model/model-baseline/model.json";
+
+  // Only add this when using VGG
+  class L2 {
+
+      static className = 'L2';
+
+      constructor(config) {
+        return tf.regularizers.l1l2(config)
+      }
+  }
+  tf.serialization.registerClass(L2);
+  ///////////////////////////////////
+
+  const MODEL_URL = "./model/model-vgg/model.json";
 
   const response = await fetch(MODEL_URL);
   const modelFile = await response.json();
@@ -71,7 +84,7 @@ async function checkImage() {
   let predictions = model.predict(a.reshape([1, 256, 256, 3]));
   console.log(predictions.dataSync()[0]);
 
-  if (predictions.dataSync()[0] == 1) {
+  if (predictions.dataSync()[0] == 0) {
     var header = document.querySelector("#detect .result h2");
     header.textContent = "AI PICTURE";
   } else {
@@ -81,6 +94,39 @@ async function checkImage() {
 }
 
 // JavaScript
+// window.addEventListener("scroll", function () {
+//   var navbar = document.getElementById("navbar");
+//   var aboutSection = document.getElementById("about");
+//   var demoSection = document.getElementById("detect");
+//   var navLinks = navbar
+//     .getElementsByClassName("menu")[0]
+//     .getElementsByTagName("a");
+//   var navLogo = navbar
+//     .getElementsByClassName("logo")[0]
+//     .getElementsByTagName("a");
+
+//   if (
+//     window.scrollY >= demoSection.offsetTop - 70 &&
+//     window.scrollY < aboutSection.offsetTop - 70
+//   ) {
+//     navbar.classList.add("scrolled");
+//     for (var i = 0; i < navLinks.length; i++) {
+//       navLinks[i].classList.add("active");
+//     }
+//     for (var i = 0; i < navLogo.length; i++) {
+//       navLogo[i].classList.add("active");
+//     }
+//   } else {
+//     navbar.classList.remove("scrolled");
+//     for (var i = 0; i < navLinks.length; i++) {
+//       navLinks[i].classList.remove("active");
+//     }
+//     for (var i = 0; i < navLogo.length; i++) {
+//       navLogo[i].classList.remove("active");
+//     }
+//   }
+// });
+
 window.addEventListener("scroll", function () {
   var navbar = document.getElementById("navbar");
   var aboutSection = document.getElementById("about");
@@ -96,6 +142,9 @@ window.addEventListener("scroll", function () {
     window.scrollY >= demoSection.offsetTop - 70 &&
     window.scrollY < aboutSection.offsetTop - 70
   ) {
+    navLinks[0].classList.remove("active-button");
+    navLinks[1].classList.add("active-button");
+    navLinks[2].classList.remove("active-button");
     navbar.classList.add("scrolled");
     for (var i = 0; i < navLinks.length; i++) {
       navLinks[i].classList.add("active");
@@ -103,7 +152,21 @@ window.addEventListener("scroll", function () {
     for (var i = 0; i < navLogo.length; i++) {
       navLogo[i].classList.add("active");
     }
+  } else if (window.scrollY >= aboutSection.offsetTop - 70) {
+    navLinks[0].classList.remove("active-button");
+    navLinks[1].classList.remove("active-button");
+    navLinks[2].classList.add("active-button");
+    navbar.classList.remove("scrolled");
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].classList.remove("active");
+    }
+    for (var i = 0; i < navLogo.length; i++) {
+      navLogo[i].classList.remove("active");
+    }
   } else {
+    navLinks[0].classList.add("active-button");
+    navLinks[1].classList.remove("active-button");
+    navLinks[2].classList.remove("active-button");
     navbar.classList.remove("scrolled");
     for (var i = 0; i < navLinks.length; i++) {
       navLinks[i].classList.remove("active");
