@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>CS338_Demo</title>
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="max-width">
+        <div class="logo">
+          <a href="#home">LOGO</a>
+        </div>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#detect">Detect</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--Home section-->
+    <section class="home" id="home">
+      <div class="max-width">
+        <div class="home-content">
+          <div class="text-1" data-aos="fade-right">DETECTION OF <br>AI-GENERATED</br> SYNTHETIC FACES</div>
+          <div class="text-2" data-aos="fade-up">
+            Hello, this is our CS338 Project. In this part, we will recognize
+            whether a face is AI-generated or not. All you have to do is just
+            enter a photo and we'll tell you if the face is Fake [AI-generated],
+            or Real [A real face]. Let's try it together!
+          </div>
+          <a href="#detect" class="button">Let's start</a>
+        </div>
+      </div>
+      <div class="home-picture" data-aos="fade-up-left" data-aos-delay="100">
+        <img src="./assets/images/background.jpeg" alt="ảnh giới thiệu">
+      </div>
+    </section>
+    <!-- Demo section -->
+    <section class="demo" id="detect">
+      <div class="max-width">
+        <div class="demo-content">
+          <div class="container" data-aos="fade-up-right">
+            <div class="image-upload">
+              <div class="image-preview" id="image-preview"></div>
+              <input
+                type="file"
+                id="file-upload"
+                accept="image/*"
+                style="display: none"
+              />
+              <div class="button">
+              <button onclick="selectFile()" class="upload-button">
+                Upload
+              </button>
+              <button onclick="checkImage()" class="check-button">Check</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result"data-aos="fade-up"data-aos-delay="200">
+        <p>And that face is...</p>
+        <h2></h2>
+      </div>
+    </section>
+    <!-- About section -->
+    <section class="about" id="about">
+      <div class="max-width">
+        <div class="about-content">
+          <div class="start">
+            <div class="sub-content"data-aos="fade-up">
+              <div class="line"> </div>
+              <p>Hello,</p></div>
+            <div class="main-content" data-aos="fade-up-right">This is all about us:</div>
+          </div>
+          <div class="member-list" >
+            <div class="member-items" data-aos="fade-up" data-aos-delay="200">
+              <div class="member-content">
+                <div class="content-heading">Name:</div>
+                <div class="content-desc">Huỳnh Nguyễn Vân Khánh</div>
+                <div class="content-heading">Student ID:</div>
+                <div class="content-desc">20521446</div>
+              </div>
+            </div>
+            <div class="member-items" data-aos="fade-up" data-aos-delay="500">
+              <div class="member-content">
+                <div class="content-heading">Name:</div>
+                <div class="content-desc">Bùi Quang Phú</div>
+                <div class="content-heading">Student ID:</div>
+                <div class="content-desc">20520273</div>
+              </div>
+            </div>
+            <div class="member-items" data-aos="fade-up" data-aos-delay="800">
+              <div class="member-content">
+                <div class="content-heading">Name:</div>
+                <div class="content-desc">Nguyễn Thị Ngọc Nga</div>
+                <div class="content-heading">Student ID:</div>
+                <div class="content-desc">20521641</div>
+              </div>
+            </div>
+          </div>
+          <div class="end">
+            <p>Thank you. Have a nice day!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.8.0/dist/tf.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+  </body>
+</html>
