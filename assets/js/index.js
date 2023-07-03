@@ -81,12 +81,12 @@ async function checkImage() {
   var imagePreview = document.querySelector("#image-preview");
   var canvas = imagePreview.querySelector("canvas");
   var a = tf.browser.fromPixels(canvas, 3);
-  a = tf.image.resizeBilinear(a, [256, 256], true, false).expandDims(0);
+  a = tf.image.resizeNearestNeighbor(a, [256, 256], true, false).expandDims(0);
   
   let predictions = model.predict(a.reshape([1, 256, 256, 3]), {batchSize: 2});
   console.log(predictions.arraySync()[0][0]);
 
-  if (predictions.dataSync()[0] == 0) {
+  if (predictions.dataSync()[0] < 0.5) {
     var header = document.querySelector("#detect .result h2");
     header.textContent = "AI PICTURE";
   } else {

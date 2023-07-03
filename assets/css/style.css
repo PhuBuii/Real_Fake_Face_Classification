@@ -147,12 +147,12 @@
   height: 100%;
 }
 
-.demo .demo-content .container {
+/* .demo .demo-content .container {
   padding: 20px;
   background-color: #ffffff;
   width: 90%;
   height: 90%;
-}
+} */
 
 .demo .demo-content .container .image-upload {
   display: flex;
@@ -161,9 +161,16 @@
   margin-bottom: 0px;
 }
 
+.demo .demo-content .container {
+  padding: 20px;
+  background-color: #ffffff;
+  width: 60vh;
+  height: 70vh;
+}
+
 .demo .demo-content .container .image-preview {
-  width: 350px;
-  height: 300px;
+  width: 50vh;
+  height: 50vh;
   background-color: #6f6f6f;
   margin-bottom: 10px;
   margin-top: 10px;
