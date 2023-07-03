@@ -9,8 +9,8 @@
 
 <h1 align="center"><b>Nhận dạng (Pattern Recognition)</b></h>
 
-[![Status](https://img.shields.io/badge/status-done-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
-[![GitHub contributors](https://img.shields.io/github/contributors/PhuBuii/Crossy_Road_Threejs?style=flat-square)](https://github.com/PhuBuii/Crossy_Road_Threejs/graphs/contributors)
+[![Status](https://img.shields.io/badge/status-done-pink?style=flat-square)](https://github.com/PhuBuii/Real_Fake_Face_Detection/)
+[![GitHub contributors](https://img.shields.io/github/contributors/PhuBuii/Real_Fake_Face_Detection?style=flat-square)](https://github.com/PhuBuii/Real_Fake_Face_Detection/graphs/contributors)
 [![Status](https://img.shields.io/badge/language-python-blue?style=flat-square)](https://github.com/PhuBuii/Real_Fake_Face_Detection/)
 
 
