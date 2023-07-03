@@ -34,14 +34,21 @@
   padding: 20px;
   margin: 0 0 0 50px;
 }
-.navbar .menu{
+.navbar .menu {
   margin-right: 100px;
 }
-.navbar .logo a {
-  font-size: 45px;
-  color: var(--detect-page-color);
-  font-weight: 600;
+.navbar .logo {
+  width: 200px;
+  height: 50px;
+  background-image: url("../images/CS338_logo.png");
+  background-size: cover;
 }
+.navbar .logo a {
+  display: block;
+  width: 200px;
+  height: 50px;
+}
+
 .navbar .menu li {
   list-style: none;
   display: inline;
@@ -65,9 +72,12 @@
 .navbar .menu li a:hover {
   color: var(--primary-color);
 }
-.navbar .logo a.active,
+.navbar .logo.active {
+  background-image: url("../images/CS338_logo2.png");
+}
 .navbar .menu li a.active {
-  color: var(--text-button-color);} /* Màu chữ của navbar khi lướt trang
+  color: var(--text-button-color);
+} /* Màu chữ của navbar khi lướt trang
 
 /* home section styling  */
 
@@ -81,7 +91,7 @@
 .home .max-width {
   width: 50%;
 }
-.home .home-content{
+.home .home-content {
   margin-top: 100px;
   margin-left: 10px;
 }
@@ -150,8 +160,8 @@
 .demo .demo-content .container {
   padding: 20px;
   background-color: #ffffff;
-  width: 90%;
-  height: 90%;
+  width: 60vh;
+  height: 70vh;
 }
 
 .demo .demo-content .container .image-upload {
@@ -162,8 +172,8 @@
 }
 
 .demo .demo-content .container .image-preview {
-  width: 350px;
-  height: 300px;
+  width: 50vh;
+  height: 50vh;
   background-color: #6f6f6f;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -317,5 +327,3 @@
   margin-top: 30px;
   letter-spacing: 2px;
 }
-
-

@@ -48,10 +48,7 @@ function previewImage(file) {
   };
 
   reader.readAsDataURL(selectedImage);
-
 }
-
-
 
 async function checkImage() {
   if (!selectedImage) {
@@ -82,8 +79,10 @@ async function checkImage() {
   var canvas = imagePreview.querySelector("canvas");
   var a = tf.browser.fromPixels(canvas, 3);
   a = tf.image.resizeBilinear(a, [256, 256], true, false).expandDims(0);
-  
-  let predictions = model.predict(a.reshape([1, 256, 256, 3]), {batchSize: 2});
+
+  let predictions = model.predict(a.reshape([1, 256, 256, 3]), {
+    batchSize: 2,
+  });
   console.log(predictions.arraySync()[0][0]);
 
   if (predictions.dataSync()[0] == 0) {
@@ -95,7 +94,6 @@ async function checkImage() {
   }
 }
 
-
 window.addEventListener("scroll", function () {
   var navbar = document.getElementById("navbar");
   var aboutSection = document.getElementById("about");
@@ -103,9 +101,7 @@ window.addEventListener("scroll", function () {
   var navLinks = navbar
     .getElementsByClassName("menu")[0]
     .getElementsByTagName("a");
-  var navLogo = navbar
-    .getElementsByClassName("logo")[0]
-    .getElementsByTagName("a");
+  var navLogo = navbar.getElementsByClassName("logo")[0];
 
   if (
     window.scrollY >= demoSection.offsetTop - 70 &&
@@ -118,9 +114,7 @@ window.addEventListener("scroll", function () {
     for (var i = 0; i < navLinks.length; i++) {
       navLinks[i].classList.add("active");
     }
-    for (var i = 0; i < navLogo.length; i++) {
-      navLogo[i].classList.add("active");
-    }
+    navLogo.classList.add("active");
   } else if (window.scrollY >= aboutSection.offsetTop - 70) {
     navLinks[0].classList.remove("active-button");
     navLinks[1].classList.remove("active-button");
@@ -129,9 +123,7 @@ window.addEventListener("scroll", function () {
     for (var i = 0; i < navLinks.length; i++) {
       navLinks[i].classList.remove("active");
     }
-    for (var i = 0; i < navLogo.length; i++) {
-      navLogo[i].classList.remove("active");
-    }
+    navLogo.classList.remove("active");
   } else {
     navLinks[0].classList.add("active-button");
     navLinks[1].classList.remove("active-button");
@@ -140,9 +132,7 @@ window.addEventListener("scroll", function () {
     for (var i = 0; i < navLinks.length; i++) {
       navLinks[i].classList.remove("active");
     }
-    for (var i = 0; i < navLogo.length; i++) {
-      navLogo[i].classList.remove("active");
-    }
+    navLogo.classList.remove("active");
   }
 });
 
