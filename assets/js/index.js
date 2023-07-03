@@ -48,7 +48,10 @@ function previewImage(file) {
   };
 
   reader.readAsDataURL(selectedImage);
+
 }
+
+
 
 async function checkImage() {
   if (!selectedImage) {
@@ -60,29 +63,28 @@ async function checkImage() {
   header.textContent = "Loading...";
 
   // Only add this when using VGG
-  class L2 {
+  // class L2 {
 
-      static className = 'L2';
+  //     static className = 'L2';
 
-      constructor(config) {
-        return tf.regularizers.l1l2(config)
-      }
-  }
-  tf.serialization.registerClass(L2);
+  //     constructor(config) {
+  //       return tf.regularizers.l1l2(config)
+  //     }
+  // }
+  // tf.serialization.registerClass(L2);
   ///////////////////////////////////
 
-  const MODEL_URL = "./model/model-vgg/model.json";
+  const MODEL_URL = "./model/model-baseline/model.json";
 
-  const response = await fetch(MODEL_URL);
-  const modelFile = await response.json();
-  const model = await tf.loadLayersModel(tf.io.fromMemory(modelFile));
+  const model = await tf.loadLayersModel(MODEL_URL);
 
   var imagePreview = document.querySelector("#image-preview");
   var canvas = imagePreview.querySelector("canvas");
   var a = tf.browser.fromPixels(canvas, 3);
-  a = tf.image.resizeBilinear(a, [256, 256], true, false);
-  let predictions = model.predict(a.reshape([1, 256, 256, 3]));
-  console.log(predictions.dataSync()[0]);
+  a = tf.image.resizeBilinear(a, [256, 256], true, false).expandDims(0);
+  
+  let predictions = model.predict(a.reshape([1, 256, 256, 3]), {batchSize: 2});
+  console.log(predictions.arraySync()[0][0]);
 
   if (predictions.dataSync()[0] == 0) {
     var header = document.querySelector("#detect .result h2");
@@ -93,39 +95,6 @@ async function checkImage() {
   }
 }
 
-// JavaScript
-// window.addEventListener("scroll", function () {
-//   var navbar = document.getElementById("navbar");
-//   var aboutSection = document.getElementById("about");
-//   var demoSection = document.getElementById("detect");
-//   var navLinks = navbar
-//     .getElementsByClassName("menu")[0]
-//     .getElementsByTagName("a");
-//   var navLogo = navbar
-//     .getElementsByClassName("logo")[0]
-//     .getElementsByTagName("a");
-
-//   if (
-//     window.scrollY >= demoSection.offsetTop - 70 &&
-//     window.scrollY < aboutSection.offsetTop - 70
-//   ) {
-//     navbar.classList.add("scrolled");
-//     for (var i = 0; i < navLinks.length; i++) {
-//       navLinks[i].classList.add("active");
-//     }
-//     for (var i = 0; i < navLogo.length; i++) {
-//       navLogo[i].classList.add("active");
-//     }
-//   } else {
-//     navbar.classList.remove("scrolled");
-//     for (var i = 0; i < navLinks.length; i++) {
-//       navLinks[i].classList.remove("active");
-//     }
-//     for (var i = 0; i < navLogo.length; i++) {
-//       navLogo[i].classList.remove("active");
-//     }
-//   }
-// });
 
 window.addEventListener("scroll", function () {
   var navbar = document.getElementById("navbar");
