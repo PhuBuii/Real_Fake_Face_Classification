@@ -14,14 +14,15 @@ fileUpload.addEventListener("change", function () {
 });
 
 function previewImage(file) {
-  selectedImage = file;
+  selectedImage = file;  
   var reader = new FileReader();
+  var image = new Image();
 
   reader.onload = function (e) {
-    var image = new Image();
-    image.src = e.target.result;
+    
+    image.src = e.target.result;    
 
-    image.onload = function () {
+    image.onload = function () {    
       var imagePreview = document.querySelector("#image-preview");
       var canvas = document.createElement("canvas");
       var context = canvas.getContext("2d");
@@ -76,12 +77,12 @@ async function checkImage() {
   const model = await tf.loadLayersModel(MODEL_URL);
 
   var imagePreview = document.querySelector("#image-preview");
-  var canvas = imagePreview.querySelector("canvas");
-  var a = tf.browser.fromPixels(canvas, 3);
+  var canvas = imagePreview.querySelector("canvas");  
+  var a = tf.browser.fromPixels(canvas, 3).div(255);
 
   a = tf.image.resizeNearestNeighbor(a, [256, 256], true, false).expandDims(0);
-  
-  let predictions = model.predict(a.reshape([1, 256, 256, 3]), {batchSize: 2});
+
+  let predictions = model.predict(a.reshape([1, 256, 256, 3]), { batchSize: 2 });
 
   console.log(predictions.arraySync()[0][0]);
 
