@@ -1,15 +1,7 @@
 absl-py==1.4.0
 astunparse==1.6.3
-backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
 cachetools==4.2.4
-certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
 charset-normalizer==3.1.0
-colorama @ file:///C:/b/abs_a9ozq0l032/croot/colorama_1672387194846/work
-cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
-debugpy @ file:///C:/ci/debugpy_1637091911212/work
-decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
-entrypoints @ file:///C:/ci/entrypoints_1649926659561/work
-flit_core @ file:///opt/conda/conda-bld/flit-core_1644941570762/work/source/flit_core
 fonttools==4.25.0
 gast==0.3.3
 google-auth==1.35.0
@@ -19,48 +11,25 @@ grpcio==1.54.2
 h5py==2.10.0
 idna==3.4
 importlib-metadata==6.6.0
-ipykernel @ file:///C:/b/abs_21ykzkm7y_/croots/recipe/ipykernel_1662361803478/work
-ipython @ file:///C:/Windows/TEMP/abs_45b5zb1l7q/croots/recipe/ipython_1659529855872/work
-jedi @ file:///C:/ci/jedi_1644297241925/work
-jupyter_client @ file:///C:/b/abs_d8fk_kz9zk/croot/jupyter_client_1676330195659/work
-jupyter_core @ file:///C:/b/abs_b8r5lb5eus/croot/jupyter_core_1668084445779/work
 Keras-Preprocessing==1.1.2
-kiwisolver @ file:///C:/b/abs_88mdhvtahm/croot/kiwisolver_1672387921783/work
 Markdown==3.4.3
 MarkupSafe==2.1.2
-matplotlib @ file:///C:/b/abs_ae02atcfur/croot/matplotlib-suite_1667356722968/work
-matplotlib-inline @ file:///C:/ci/matplotlib-inline_1661934089728/work
 mkl-fft==1.3.1
-mkl-random @ file:///C:/ci/mkl_random_1626186163140/work
 mkl-service==2.4.0
 munkres==1.1.4
-nest-asyncio @ file:///C:/b/abs_3a_4jsjlqu/croot/nest-asyncio_1672387322800/work
-numpy @ file:///C:/ci/numpy_and_numpy_base_1653574840943/work
 oauthlib==3.2.2
 opt-einsum==3.3.0
-packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
-parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
-pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.4.0
 ply==3.11
-prompt-toolkit @ file:///C:/b/abs_6coz5_9f2s/croot/prompt-toolkit_1672387908312/work
 protobuf==3.20.0
-psutil @ file:///C:/Windows/Temp/abs_b2c2fd7f-9fd5-4756-95ea-8aed74d0039flsd9qufz/croots/recipe/psutil_1656431277748/work
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
-Pygments @ file:///opt/conda/conda-bld/pygments_1644249106324/work
-pyparsing @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_7f_7lba6rl/croots/recipe/pyparsing_1661452540662/work
 PyQt5==5.15.7
-PyQt5-sip @ file:///C:/Windows/Temp/abs_d7gmd2jg8i/croots/recipe/pyqt-split_1659273064801/work/pyqt_sip
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
 pywin32==305.1
-pyzmq @ file:///C:/ci/pyzmq_1657597757589/work
 requests==2.30.0
 requests-oauthlib==1.3.1
 rsa==4.9
 scipy==1.4.1
-sip @ file:///C:/Windows/Temp/abs_b8fxd17m2u/croots/recipe/sip_1659012372737/work
-six @ file:///tmp/build/80754af9/six_1644875935023/work
 tensorboard==2.2.2
 tensorboard-plugin-wit==1.8.1
 tensorflow==2.2.0
@@ -68,12 +37,8 @@ tensorflow-estimator==2.2.0
 tensorflow-hub==0.12.0
 tensorflowjs==3.19.0
 termcolor==2.3.0
-toml @ file:///tmp/build/80754af9/toml_1616166611790/work
-tornado @ file:///C:/ci/tornado_1662476933490/work
-traitlets @ file:///C:/b/abs_e5m_xjjl94/croot/traitlets_1671143896266/work
 typing_extensions==4.5.0
 urllib3==2.0.2
-wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
 Werkzeug==2.2.3
 wincertstore==0.2
 wrapt==1.15.0
