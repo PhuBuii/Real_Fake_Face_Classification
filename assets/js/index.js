@@ -16,10 +16,10 @@ fileUpload.addEventListener("change", function () {
 function previewImage(file) {
   selectedImage = file;  
   var reader = new FileReader();
-  var image = new Image();
+  
 
   reader.onload = function (e) {
-    
+    var image = new Image();
     image.src = e.target.result;    
 
     image.onload = function () {    
