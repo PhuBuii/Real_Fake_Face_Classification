@@ -34,7 +34,5 @@
 * **Tên đồ án:** Real-Fake Faces detection
 * **Ngôn ngữ lập trình:** Python
 
-## [CÁC BƯỚC CẦN THIẾT](#top)
-
 ## [DEMO](#top)
-Bạn có thể trải nghiệm thử demo tại [đây](https://phubuii.github.io/Real_Fake_Face_Detection/).
+Bạn có thể trải nghiệm thử demo tại [đây](https://phubuii.github.io/Real_Fake_Face_Classification/). Hoặc có thể tham khảo video tại [đây](https://drive.google.com/drive/folders/1dN43v7zLOue6svU9vh3cFgwXWXAvdTG9?usp=drive_link).
